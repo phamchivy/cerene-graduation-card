@@ -7,12 +7,16 @@
 
 // PLACEHOLDER: sửa lại danh sách câu chúc thật của bạn
 const WISH_MESSAGES = [
-  'Tự hào về em quá trời! 🎓',
+  'Tự hào về người iu quá trời! 🎓',
   'Cử nhân xinh gái nhất vịnh Bắc Bộ 😌✨',
-  '4 năm cày cuốc không uổng công đâu nha!',
-  'Chúc mừng em nhiều nhiều nha 🐋',
-  'Đại dương lớn đợi em kìa, bơi thôi!',
-  'Yêu em xỉu lên xỉu xuống luôn á 💙',
+  '5 năm cày cuốc không uổng công đâu nha!',
+  'Chúc mừng tình iu nhiều nhiều nha 🐋',
+  'Đại dương lớn đợi em kìa, bơi thôi (cơ mà em không biết bơi hiuhiu)!',
+  'Anh yêu em nhất luôn á 💙',
+  'Namaste 🙏',
+  '"Mọi thứ trên đời đều tương đối" - Albert Einstein không nói thế :)))))',
+  '"Anh dặm bùa em đúng không 😆"',
+  '"Em nhớ anh quá 🥹"',
 ];
 
 // Các vị trí ngang (% left) xoay vòng quanh khu vực giữa — không dàn quá rộng
