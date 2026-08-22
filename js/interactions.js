@@ -22,6 +22,7 @@ let spreadIndex = 0;
 export function initInteractions() {
   const whale = document.getElementById('whale');
   const bubbleLayer = document.getElementById('bubble-layer');
+  const popAudio = document.getElementById('wish-bubble-audio');
   if (!whale || !bubbleLayer) return;
 
   whale.addEventListener('click', () => {
@@ -30,6 +31,15 @@ export function initInteractions() {
     // cá voi hơi "giật mình" mỗi lần bấm cho vui tay
     whale.classList.add('whale--tapped');
     setTimeout(() => whale.classList.remove('whale--tapped'), 200);
+
+    // Phát âm thanh bong bóng — vì đây là do click trực tiếp (có tương tác người dùng)
+    // nên KHÔNG bị trình duyệt chặn autoplay như hiệu ứng cá voi to random trước đó
+    if (popAudio) {
+      popAudio.currentTime = 0;
+      popAudio.play().catch(() => {
+        // Chưa có file assets/audio/wish-bubble-pop.mp3 -> bỏ qua tạm thời
+      });
+    }
   });
 }
 

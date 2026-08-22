@@ -118,6 +118,20 @@
   100% { transform: translateX(-50%) scale(3.5); opacity: 0; }
 }
 
+/* --- Vòng sóng lan rộng ra quanh thân cá voi khi trồi lên (mặt nước gợn) --- */
+@keyframes ripple-expand {
+  0%   { transform: translateX(-50%) scale(0.3); opacity: 0.8; }
+  100% { transform: translateX(-50%) scale(9); opacity: 0; }
+}
+
+/* --- Hạt nước bắn ngang 2 bên thân khi cá voi phá mặt nước (dùng --sdx/--sdy set riêng) --- */
+@keyframes side-splash-shoot {
+  0%   { transform: translate(0, 0) scale(0.5); opacity: 0; }
+  20%  { opacity: 1; }
+  60%  { transform: translate(calc(var(--sdx) * 0.7), var(--sdy)) scale(1); opacity: 1; }
+  100% { transform: translate(var(--sdx), calc(var(--sdy) + 40px)) scale(0.6); opacity: 0; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   * { animation: none !important; transition: none !important; }
 }
