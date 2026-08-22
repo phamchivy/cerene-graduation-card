@@ -1,0 +1,40 @@
+/* =====================================================
+   DESIGN TOKENS
+   Chủ đề: Đại dương + Tốt nghiệp + Song Ngư (Pisces)
+   -> sẽ chốt bảng màu chính thức ở bước thiết kế UI,
+      đây là bộ khung để bắt đầu
+   ===================================================== */
+
+:root {
+  /* Màu chính - đại dương */
+  --color-ocean-deep: #0a3d62;
+  --color-ocean-mid: #1e6091;
+  --color-ocean-light: #74b9e0;
+  --color-foam: #eaf6f6;
+
+  /* Màu nhấn - tốt nghiệp + Song Ngư (ánh ngọc trai/vàng nhẹ) */
+  --color-accent-gold: #e8c48a;
+  --color-accent-pearl: #f6ecf7;
+
+  /* Chữ */
+  --color-text-dark: #0b2e4a;
+  --color-text-light: #ffffff;
+
+  /* Font - đã chọn, xem link Google Fonts trong index.html <head> */
+  --font-display: 'Playfair Display', serif;   /* tiêu đề, tên section */
+  --font-body: 'Be Vietnam Pro', sans-serif;    /* nội dung chính */
+  --font-caption: 'Quicksand', sans-serif;      /* chú thích ảnh */
+  --font-letter: 'Caveat', cursive;             /* thư viết tay */
+  --font-signature: 'Dancing Script', cursive;  /* chữ ký */
+
+  /* Spacing scale */
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 2rem;
+  --space-lg: 4rem;
+  --space-xl: 8rem;
+
+  /* Safe area cho iPhone (tai thỏ / thanh home) */
+  --safe-top: env(safe-area-inset-top, 0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+}
