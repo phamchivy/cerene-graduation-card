@@ -24,7 +24,7 @@
   --font-display: 'Playfair Display', serif;   /* tiêu đề, tên section */
   --font-body: 'Be Vietnam Pro', sans-serif;    /* nội dung chính */
   --font-caption: 'Quicksand', sans-serif;      /* chú thích ảnh */
-  --font-letter: 'Caveat', cursive;             /* thư viết tay */
+  --font-letter: 'Mali', cursive;               /* thư viết tay — đổi từ Caveat vì dấu tiếng Việt bị vỡ */
   --font-signature: 'Dancing Script', cursive;  /* chữ ký */
 
   /* Spacing scale */

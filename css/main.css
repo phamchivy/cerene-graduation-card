@@ -49,29 +49,84 @@ body {
 .decor-coral  { font-size: clamp(2rem, 6vw, 3rem); opacity: 0.4; }
 .decor-mermaid{ font-size: clamp(2.5rem, 7vw, 4rem); opacity: 0.5; animation: sway 7s ease-in-out infinite; }
 
-/* Ảnh nhỏ rải rác dạng polaroid (khác gallery chính) */
-.accent-photo {
+/* Cá bơi ngang qua section, lặp lại */
+.decor-fish {
+  top: 30%;
+  left: -10%;
+  font-size: clamp(1.5rem, 5vw, 2.5rem);
+  opacity: 0.6;
+  animation: fish-swim 14s linear infinite;
+}
+.decor-fish--2 { top: 55%; animation-duration: 18s; }
+
+/* Bong bóng bay liên tục từ đáy lên đỉnh section, lặp vô hạn */
+.rising-bubble {
+  position: absolute;
+  bottom: -10%;
+  width: clamp(8px, 2vw, 16px);
+  height: clamp(8px, 2vw, 16px);
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.9), rgba(255,255,255,0.15));
+  animation: bubble-rise 7s ease-in infinite;
+}
+
+/* =========================================
+   Cụm ảnh rải rác (photo-cluster) — dùng trong intro/letter/celebration
+   Đổi sang CSS Grid thật (không dùng absolute % nữa) để ĐẢM BẢO không
+   bao giờ chồng lên nhau — Grid tự chừa ô trước, xoay nghiêng chỉ là
+   hiệu ứng thị giác (transform không ảnh hưởng chỗ Grid đã cấp phát)
+   ========================================= */
+.photo-cluster {
   position: relative;
   z-index: 2;
-  margin: var(--space-md) auto 0;
-  width: min(60%, 220px);
-  aspect-ratio: 1 / 1.1;
-  background: #fff;
-  border: 1px solid rgba(0,0,0,0.05);
-  border-radius: 8px;
-  box-shadow: 0 6px 16px rgba(10,61,98,0.15);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transform: rotate(-3deg);
+  margin: var(--space-lg) auto 0;
+  width: min(85%, 320px);
+  height: 200px;
+  display: grid;
+  gap: 14px;
 }
-.accent-photo span {
-  font-family: var(--font-caption);
-  color: var(--color-ocean-mid);
-  font-size: 0.85rem;
+.pc-item {
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(10,61,98,0.2);
+  min-height: 0; /* để item co đúng theo ô grid, không tràn */
+  min-width: 0;
 }
-.accent-photo--letter { transform: rotate(2deg); }
-.accent-photo--celebration { transform: rotate(-2deg); }
+
+/* Cụm 2 ảnh (intro, celebration cũ) - 1 ảnh cao bên trái, 1 ảnh thấp bên phải */
+.photo-cluster--sm {
+  grid-template-columns: 1.1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+}
+.photo-cluster--sm .pc-item-1 { grid-column: 1; grid-row: 1 / 3; transform: rotate(-4deg) scale(0.95); }
+.photo-cluster--sm .pc-item-2 { grid-column: 2; grid-row: 2 / 3; transform: rotate(4deg) scale(0.95); }
+
+/* Cụm 3 ảnh (letter) - 1 ảnh cao bên trái, 2 ảnh xếp chồng bên phải */
+.photo-cluster--letter {
+  height: 240px;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+}
+.photo-cluster--letter .pc-item-1 { grid-column: 1; grid-row: 1 / 3; transform: rotate(-5deg) scale(0.95); }
+.photo-cluster--letter .pc-item-2 { grid-column: 2; grid-row: 1; transform: rotate(4deg) scale(0.95); }
+.photo-cluster--letter .pc-item-3 { grid-column: 2; grid-row: 2; transform: rotate(-3deg) scale(0.95); }
+
+/* Cụm 4 ảnh (celebration) - lưới 2x2 đều, mỗi ô 1 ảnh riêng */
+.photo-cluster--quad {
+  height: 280px;
+  width: min(90%, 360px);
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+}
+.photo-cluster--quad .pc-item-1 { grid-column: 1; grid-row: 1; transform: rotate(-4deg) scale(0.92); }
+.photo-cluster--quad .pc-item-2 { grid-column: 2; grid-row: 1; transform: rotate(3deg) scale(0.92); }
+.photo-cluster--quad .pc-item-3 { grid-column: 1; grid-row: 2; transform: rotate(3deg) scale(0.92); }
+.photo-cluster--quad .pc-item-4 { grid-column: 2; grid-row: 2; transform: rotate(-3deg) scale(0.92); }
+
+@media (min-width: 768px) {
+  .photo-cluster { width: min(70%, 480px); height: 280px; }
+  .photo-cluster--letter { height: 320px; }
+  .photo-cluster--quad { height: 340px; width: min(60%, 420px); }
+}
 
 /* =========================================
    #cover
@@ -134,25 +189,36 @@ body {
 .gallery-title {
   font-family: var(--font-display);
   text-align: center;
-  margin-bottom: var(--space-sm);
+  margin-bottom: var(--space-xs);
   font-size: clamp(1.5rem, 5vw, 2.25rem);
 }
-.gallery-grid {
+.gallery-hint {
+  text-align: center;
+  font-family: var(--font-caption);
+  font-size: 0.8rem;
+  color: var(--color-ocean-mid);
+  margin-bottom: var(--space-sm);
+}
+
+/* Mobile: cuộn ngang, mỗi ảnh nghiêng nhẹ để có cảm giác rải rác */
+.gallery-scatter {
   display: flex;
   overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  gap: var(--space-sm);
+  gap: var(--space-md);
+  padding: var(--space-md) var(--space-xs);
   width: 100%;
-  padding-bottom: var(--space-xs); /* chỗ cho thanh cuộn trên 1 số trình duyệt */
 }
-.gallery-grid img,
-.photo-placeholder {
-  scroll-snap-align: center;
-  flex: 0 0 78%;
-  aspect-ratio: 4 / 5;
-  border-radius: 16px;
-  object-fit: cover;
+.gs-item { flex: 0 0 62%; aspect-ratio: 4 / 5; }
+
+/* QUAN TRỌNG: giới hạn rõ chỉ áp dụng dưới 768px — nếu để không giới hạn,
+   3 dòng nth-child này (độ ưu tiên CSS cao hơn .gs-1..8 ở dưới) sẽ ĐÈ NGƯỢC
+   LẠI cả vị trí lẫn tỷ lệ ảnh của desktop, gây chồng ảnh lên nhau */
+@media (max-width: 767.98px) {
+  .gs-item:nth-child(odd)  { transform: rotate(-4deg); }
+  .gs-item:nth-child(even) { transform: rotate(4deg); aspect-ratio: 5 / 4; align-self: flex-end; }
+  .gs-item:nth-child(3n)   { aspect-ratio: 1 / 1; }
 }
+
 .photo-placeholder {
   display: flex;
   align-items: center;
@@ -161,20 +227,35 @@ body {
   background: rgba(116, 184, 224, 0.12);
   color: var(--color-ocean-mid);
   font-family: var(--font-caption);
+  border-radius: 16px;
 }
+.photo-placeholder span {
+  font-size: 0.75rem;
+  text-align: center;
+  padding: 0 0.25rem;
+}
+
 @media (min-width: 768px) {
-  .gallery-grid img,
-  .photo-placeholder { flex: 0 0 45%; }
-}
-@media (min-width: 1024px) {
-  .gallery-grid {
+  /* Desktop: bố cục masonry rải rác, không còn cuộn ngang
+     Chỉ định rõ vị trí từng ô (không để auto-placement) để tránh ảnh đè lên nhau
+     khi xoay nghiêng — góc nghiêng cũng giảm bớt cho an toàn */
+  .gallery-scatter {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: 150px;
     overflow-x: visible;
-    gap: var(--space-md);
+    gap: calc(var(--space-md) + 8px);
+    padding: var(--space-md);
   }
-  .gallery-grid img,
-  .photo-placeholder { flex: none; }
+  .gs-item { flex: none; aspect-ratio: auto; align-self: auto; transform: scale(0.94); }
+  .gs-1 { grid-column: 1 / 3; grid-row: 1 / 3; transform: rotate(-2deg) scale(0.94); }
+  .gs-2 { grid-column: 3 / 4; grid-row: 1 / 2; transform: rotate(3deg) scale(0.94); }
+  .gs-3 { grid-column: 4 / 5; grid-row: 1 / 3; transform: rotate(-2deg) scale(0.94); }
+  .gs-4 { grid-column: 3 / 4; grid-row: 2 / 3; transform: rotate(2deg) scale(0.94); }
+  .gs-5 { grid-column: 1 / 2; grid-row: 3 / 4; transform: rotate(-3deg) scale(0.94); }
+  .gs-6 { grid-column: 2 / 4; grid-row: 3 / 4; transform: rotate(1deg) scale(0.94); }
+  .gs-7 { grid-column: 4 / 5; grid-row: 3 / 4; transform: rotate(-2deg) scale(0.94); }
+  .gs-8 { grid-column: 1 / 2; grid-row: 4 / 5; transform: rotate(3deg) scale(0.94); }
 }
 
 /* =========================================
@@ -217,12 +298,15 @@ body {
   border: none;
   cursor: pointer;
   touch-action: manipulation; /* tránh double-tap zoom trên iOS */
+  transition: transform 0.15s ease;
 }
-.bubble-layer { position: relative; height: 120px; pointer-events: none; }
+.whale--tapped { transform: scale(0.9); }
+.bubble-layer { position: relative; height: 140px; pointer-events: none; overflow: visible; }
 .wish-bubble {
   font-family: var(--font-caption);
   position: absolute;
-  left: 50%;
+  /* left được set riêng từng bong bóng bằng JS để tách vị trí, không cố định 50% nữa */
+  transform: translateX(-50%);
   background: rgba(255,255,255,0.9);
   color: var(--color-ocean-deep);
   padding: 0.5rem 1rem;
@@ -271,4 +355,75 @@ body {
 }
 @media (min-width: 768px) {
   .music-toggle { width: 48px; height: 48px; }
+}
+
+/* =========================================
+   Cá voi to hiếm khi trồi lên chiếm nửa dưới màn hình + phun nước
+   Ẩn mặc định (translateY 140%), JS random thêm class .is-surfacing
+   ========================================= */
+.whale-surface {
+  position: fixed;
+  left: 50%;
+  bottom: 0;
+  width: 100%;
+  height: 55dvh;
+  z-index: 60;
+  pointer-events: none;
+  transform: translate(-50%, 100vh); /* dịch theo vh (cả màn hình) thay vì % (chính nó) để đảm bảo ẩn hết dù emoji to hơn khung chứa */
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+.whale-surface.is-surfacing {
+  animation: whale-surface-rise 5s ease-in-out forwards;
+}
+.whale-surface-body {
+  display: block;
+  font-size: clamp(14rem, 60vw, 32rem);
+  line-height: 1;
+  filter: drop-shadow(0 -10px 40px rgba(10,61,98,0.5));
+}
+.spout-layer {
+  position: absolute;
+  top: -10%;
+  left: 50%;
+  width: 10px;
+  height: 10px;
+}
+/* Mỗi giọt nước là 1 particle CSS thuần (không dùng emoji), bắn lên rồi rơi xuống theo vòng cung */
+.spray-particle {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: clamp(6px, 1.4vw, 12px);
+  height: clamp(6px, 1.4vw, 12px);
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, #fff, var(--color-ocean-light));
+  opacity: 0;
+}
+.whale-surface.is-surfacing .spray-particle {
+  animation: spray-shoot 1.4s ease-out forwards;
+}
+.sp-1 { animation-delay: 1.7s !important; --dx: -70px; --peak: -180px; }
+.sp-2 { animation-delay: 1.75s !important; --dx: -40px; --peak: -230px; }
+.sp-3 { animation-delay: 1.8s !important; --dx: -15px; --peak: -260px; }
+.sp-4 { animation-delay: 1.85s !important; --dx: 0px;  --peak: -280px; }
+.sp-5 { animation-delay: 1.8s !important; --dx: 15px;  --peak: -260px; }
+.sp-6 { animation-delay: 1.75s !important; --dx: 40px;  --peak: -230px; }
+.sp-7 { animation-delay: 1.7s !important; --dx: 70px;  --peak: -180px; }
+
+/* Quầng sáng bung ra ngay lúc đỉnh phun, cho cảm giác "bùm" rõ hơn là chỉ có hạt nước nhỏ */
+.splash-burst {
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0) 70%);
+  transform: translateX(-50%) scale(0);
+  opacity: 0;
+}
+.whale-surface.is-surfacing .splash-burst {
+  animation: splash-burst-pop 1s ease-out 1.65s;
 }

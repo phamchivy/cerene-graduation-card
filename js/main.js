@@ -7,11 +7,13 @@
 import { initAudioPlayer } from './audio-player.js';
 import { initScrollEffects } from './scroll-effects.js';
 import { initInteractions } from './interactions.js';
+import { initWhaleSurface } from './whale-surface.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   initAudioPlayer();
   initScrollEffects();
   initInteractions();
+  initWhaleSurface();
 
   console.log('Thiệp tốt nghiệp Cerene - sẵn sàng 🌊');
 });

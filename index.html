@@ -5,10 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Chúc mừng tốt nghiệp, Cerene 🎓🌊</title>
 
-  <!-- Google Fonts: đã kiểm tra hỗ trợ đầy đủ dấu tiếng Việt - -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Be+Vietnam+Pro:wght@300;400;500;600&family=Quicksand:wght@400;500&family=Caveat:wght@400;500;600&family=Dancing+Script:wght@500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Be+Vietnam+Pro:wght@300;400;500;600&family=Quicksand:wght@400;500&family=Mali:wght@400;500;600&family=Dancing+Script:wght@500;700&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="css/variables.css">
   <link rel="stylesheet" href="css/main.css">
@@ -16,7 +15,6 @@
 </head>
 <body>
 
-  <!-- NÚT NHẠC NỀN (cố định, luôn hiện, cần bấm mới phát được trên iOS) -->
   <button id="music-toggle" class="music-toggle" aria-label="Bật/tắt nhạc nền">🎵</button>
 
   <!-- ============================================
@@ -29,20 +27,21 @@
         <path class="wave wave-2" d="M0,180 C320,120 420,240 720,180 C1020,120 1120,240 1440,180 L1440,320 L0,320 Z"></path>
       </svg>
     </div>
-    <!-- Decor: bong bóng + vỏ sò trôi nổi quanh trang bìa -->
     <div class="decor-layer" aria-hidden="true">
-      <span class="decor decor-bubble" style="left:8%; top:20%;">🫧</span>
-      <span class="decor decor-bubble" style="left:85%; top:30%; animation-delay:1.5s;">🫧</span>
       <span class="decor decor-shell" style="left:12%; top:65%; animation-delay:0.5s;">🐚</span>
       <span class="decor decor-star" style="left:80%; top:60%; animation-delay:1s;">⭐️</span>
-      <span class="decor decor-mermaid" style="left:50%; top:12%;">🧜‍♀️</span>
+      <span class="decor decor-mermaid" style="left:82%; top:10%;">🧜‍♀️</span>
+      <span class="decor decor-fish" style="animation-delay:0s;">🐠</span>
+      <span class="decor decor-fish decor-fish--2" style="animation-delay:5s;">🐟</span>
+      <span class="rising-bubble" style="left:10%; animation-delay:0s;"></span>
+      <span class="rising-bubble" style="left:25%; animation-delay:2s;"></span>
+      <span class="rising-bubble" style="left:70%; animation-delay:4s;"></span>
+      <span class="rising-bubble" style="left:88%; animation-delay:1s;"></span>
     </div>
     <div class="cover-content">
-      <p class="cover-eyebrow">🎓 Ngày trọng đại của tụi mình nè</p>
-      <h1>Chúc mừng<br>Cerene iu!</h1>
-      <p class="cover-subtitle">
-        4 năm cày cuốc, giờ chính thức là cử nhân xịn sò rồi đó nha 🎉
-      </p>
+      <p class="cover-eyebrow">🎓 Ngày VNU-IS đánh mất em</p>
+      <h1>Happy Graduation<br>Cerene iu!</h1>
+      <p class="cover-subtitle">4 năm cày cuốc, giờ chính thức là cử nhân song bằng rồi đó nha 🎉</p>
       <a href="#intro" class="cover-cta">Mở thiệp xíu ↓</a>
     </div>
   </section>
@@ -53,8 +52,9 @@
   <section id="intro" class="section">
     <div class="decor-layer" aria-hidden="true">
       <span class="decor decor-shell" style="left:6%; top:15%;">🐚</span>
-      <span class="decor decor-bubble" style="left:90%; top:20%; animation-delay:0.8s;">🫧</span>
       <span class="decor decor-coral" style="left:88%; top:75%;">🪸</span>
+      <span class="rising-bubble" style="left:15%; animation-delay:1s;"></span>
+      <span class="rising-bubble" style="left:85%; animation-delay:3s;"></span>
     </div>
     <div class="intro-wrap reveal">
       <p class="intro-text">
@@ -63,9 +63,10 @@
         cày bài, em đều lướt qua ngọt xớt. Giờ thì... tân cử nhân chính hiệu rồi đó nha,
         xịn quá trời xịn luôn á! 🎓✨
       </p>
-      <!-- Ảnh rải rác: ảnh nhỏ kiểu polaroid, KHÔNG phải gallery chính -->
-      <div class="accent-photo accent-photo--intro">
-        <span>Ảnh kỷ niệm</span>
+      <!-- Cụm ảnh rải rác, nghiêng, nhiều kích cỡ -->
+      <div class="photo-cluster photo-cluster--sm">
+        <div class="photo-placeholder pc-item pc-item-1"><span>Ảnh #1</span></div>
+        <div class="photo-placeholder pc-item pc-item-2"><span>Ảnh #2</span></div>
       </div>
     </div>
   </section>
@@ -77,20 +78,21 @@
     <div class="decor-layer" aria-hidden="true">
       <span class="decor decor-star" style="left:5%; top:10%;">⭐️</span>
       <span class="decor decor-shell" style="left:92%; top:85%;">🐚</span>
+      <span class="rising-bubble" style="left:50%; animation-delay:2s;"></span>
     </div>
     <div class="gallery-wrap reveal">
       <h2 class="gallery-title">Những khoảnh khắc của tụi mình 🐬</h2>
-      <!-- KHUNG ẢNH: đặt ảnh thật vào assets/images/photos/photo-01.jpg ... photo-08.jpg
-           rồi thay <div class="photo-placeholder"> bằng <img src="..." alt="..."> -->
-      <div class="gallery-grid">
-        <div class="photo-placeholder"><span>Ảnh #1</span></div>
-        <div class="photo-placeholder"><span>Ảnh #2</span></div>
-        <div class="photo-placeholder"><span>Ảnh #3</span></div>
-        <div class="photo-placeholder"><span>Ảnh #4</span></div>
-        <div class="photo-placeholder"><span>Ảnh #5</span></div>
-        <div class="photo-placeholder"><span>Ảnh #6</span></div>
-        <div class="photo-placeholder"><span>Ảnh #7</span></div>
-        <div class="photo-placeholder"><span>Ảnh #8</span></div>
+      <p class="gallery-hint">(kéo/vuốt xem thêm nè)</p>
+      <!-- KHUNG ẢNH: thay <div class="photo-placeholder"> bằng <img src="assets/images/photos/photo-XX.jpg" alt="..."> -->
+      <div class="gallery-scatter">
+        <div class="photo-placeholder gs-item gs-1"><span>Ảnh #1</span></div>
+        <div class="photo-placeholder gs-item gs-2"><span>Ảnh #2</span></div>
+        <div class="photo-placeholder gs-item gs-3"><span>Ảnh #3</span></div>
+        <div class="photo-placeholder gs-item gs-4"><span>Ảnh #4</span></div>
+        <div class="photo-placeholder gs-item gs-5"><span>Ảnh #5</span></div>
+        <div class="photo-placeholder gs-item gs-6"><span>Ảnh #6</span></div>
+        <div class="photo-placeholder gs-item gs-7"><span>Ảnh #7</span></div>
+        <div class="photo-placeholder gs-item gs-8"><span>Ảnh #8</span></div>
       </div>
     </div>
   </section>
@@ -102,9 +104,10 @@
     <div class="decor-layer" aria-hidden="true">
       <span class="decor decor-star" style="left:88%; top:12%;">⭐️</span>
       <span class="decor decor-shell" style="left:8%; top:80%;">🐚</span>
+      <span class="rising-bubble" style="left:92%; animation-delay:0.5s;"></span>
     </div>
     <div class="letter-content reveal">
-      <p class="zodiac-badge">♓ Song Ngư — sinh ra để thuộc về đại dương</p>
+      <p class="zodiac-badge">♓ Song Ngư — sinh ra để thuộc về đại dương bao la</p>
       <p>Gửi Cerene iu của anh,</p>
       <p>
         Anh theo dõi hành trình song bằng của em từ đầu tới cuối luôn á,
@@ -117,8 +120,10 @@
       </p>
       <p>Chúc mừng tân cử nhân của anh nè! Đại dương lớn ngoài kia đang đợi em tung tăng bơi tới rồi đó 🌊🧜‍♀️</p>
 
-      <div class="accent-photo accent-photo--letter">
-        <span>Ảnh cùng nhau</span>
+      <div class="photo-cluster photo-cluster--letter">
+        <div class="photo-placeholder pc-item pc-item-1"><span>Ảnh #1</span></div>
+        <div class="photo-placeholder pc-item pc-item-2"><span>Ảnh #2</span></div>
+        <div class="photo-placeholder pc-item pc-item-3"><span>Ảnh #3</span></div>
       </div>
     </div>
   </section>
@@ -130,10 +135,13 @@
     <div class="decor-layer" aria-hidden="true">
       <span class="decor decor-coral" style="left:6%; top:75%;">🪸</span>
       <span class="decor decor-shell" style="left:90%; top:20%;">🐚</span>
-      <span class="decor decor-bubble" style="left:80%; top:70%; animation-delay:1.2s;">🫧</span>
+      <span class="decor decor-fish" style="animation-delay:2s;">🐠</span>
+      <span class="rising-bubble" style="left:20%; animation-delay:0s;"></span>
+      <span class="rising-bubble" style="left:75%; animation-delay:2.5s;"></span>
+      <span class="rising-bubble" style="left:45%; animation-delay:4.5s;"></span>
     </div>
     <div class="whale-wrap reveal">
-      <p class="whale-hint">Chạm vào cá voi để nhận lời chúc xịn xò nè 🐋💌</p>
+      <p class="whale-hint">Chạm vào cá voi để nhận lời chúc xịn xò nè, chạm nhiều nhiều luôn 🐋💌</p>
       <button id="whale" class="whale" aria-label="Chạm để nhận lời chúc">🐋</button>
       <div id="bubble-layer" class="bubble-layer" aria-live="polite"></div>
     </div>
@@ -147,11 +155,15 @@
     <div class="decor-layer" aria-hidden="true">
       <span class="decor decor-shell" style="left:10%; top:20%;">🐚</span>
       <span class="decor decor-star" style="left:85%; top:25%;">⭐️</span>
+      <span class="rising-bubble" style="left:60%; animation-delay:1.5s;"></span>
     </div>
     <div class="celebration-wrap reveal">
       <h2>🎓 Chúc mừng tân Cử nhân Cerene nè! 🌊</h2>
-      <div class="accent-photo accent-photo--celebration">
-        <span>Ảnh tốt nghiệp</span>
+      <div class="photo-cluster photo-cluster--quad">
+        <div class="photo-placeholder pc-item pc-item-1"><span>Ảnh #1</span></div>
+        <div class="photo-placeholder pc-item pc-item-2"><span>Ảnh #2</span></div>
+        <div class="photo-placeholder pc-item pc-item-3"><span>Ảnh #3</span></div>
+        <div class="photo-placeholder pc-item pc-item-4"><span>Ảnh #4</span></div>
       </div>
     </div>
   </section>
@@ -162,7 +174,8 @@
   <section id="signature" class="section">
     <div class="decor-layer" aria-hidden="true">
       <span class="decor decor-mermaid" style="left:15%; top:65%;">🧜‍♀️</span>
-      <span class="decor decor-bubble" style="left:80%; top:30%;">🫧</span>
+      <span class="rising-bubble" style="left:80%; animation-delay:0s;"></span>
+      <span class="rising-bubble" style="left:30%; animation-delay:3s;"></span>
     </div>
     <div class="signature-content reveal">
       <p class="signature-lead">Thương em nhiều lắm luôn á,</p>
@@ -171,9 +184,30 @@
     </div>
   </section>
 
-  <!-- Audio nhạc nền -->
   <audio id="bg-music" loop preload="none">
     <source src="assets/audio/background-music.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- Hiệu ứng hiếm khi: cá voi to trồi lên chắn nửa dưới màn hình rồi phun nước
+       Ẩn mặc định (nằm dưới màn hình), JS random trigger, xem js/whale-surface.js -->
+  <div id="whale-surface" class="whale-surface" aria-hidden="true">
+    <div class="spout-layer">
+      <span class="splash-burst"></span>
+      <span class="spray-particle sp-1"></span>
+      <span class="spray-particle sp-2"></span>
+      <span class="spray-particle sp-3"></span>
+      <span class="spray-particle sp-4"></span>
+      <span class="spray-particle sp-5"></span>
+      <span class="spray-particle sp-6"></span>
+      <span class="spray-particle sp-7"></span>
+    </div>
+    <span class="whale-surface-body">🐋</span>
+  </div>
+
+  <!-- Âm thanh phun nước khi cá voi trồi lên
+       PLACEHOLDER: đặt file thật vào assets/audio/whale-splash.mp3 -->
+  <audio id="whale-splash-audio" preload="none">
+    <source src="assets/audio/whale-splash.mp3" type="audio/mpeg">
   </audio>
 
   <script type="module" src="js/main.js"></script>
